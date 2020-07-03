@@ -1,20 +1,15 @@
 <template>
   <div class="single-post-page">
     <section class="post">
-      <h1 class="post-title">{{loadedpost.title}}</h1>
+      <h1 class="post-title">{{ loadedPost.title }}</h1>
       <div class="post-details">
-        <div class="post-detail">Las updatade on {{loadedpost.updatedDate}}</div>
-        <div class="post-detail">Writeen by {{loadedpost.author}}</div>
+        <div class="post-detail">Last updated on {{ loadedPost.updatedDate }}</div>
+        <div class="post-detail">Written by {{ loadedPost.author }}</div>
       </div>
-      <p class="post-content">{{loadedpost.content}}</p>
+      <p class="post-content">{{ loadedPost.content }}</p>
     </section>
     <section class="post-feedback">
-      <p>
-        Let me know what you think about the post, send a mail to
-        <a
-          href="mailto:feedback@my-awesome-domain.com"
-        ></a>feedback@my-awesome-domain.com
-      </p>
+      <p>Let me know what you think about the post, send a mail to <a href="mailto:feedback@my-awesome-domain.com">feedback@my-awesome-domain.com</a>.</p>
     </section>
   </div>
 </template>
@@ -24,27 +19,24 @@ export default {
   asyncData(context, callback) {
     setTimeout(() => {
       callback(null, {
-        loadedpost: {
+        loadedPost: {
           id: "1",
-          title: "This is my first post (ID: "+ context.router.params.id +")",
-          text: "This is my first text",
+          title: "First Post (ID: " + context.route.params.id + ")",
+          previewText: "This is our first post!",
           author: 'Maximilian',
           updatedDate: new Date(),
-          content:'Some dummby text which is definitely not the preview',
+          content: 'Some dummy text which is definitely not the preview text though!',
           thumbnail:
-            "https://organizacoespower.com.br/static/img/hero-right.00e12ba.webp"
+            "https://static.pexels.com/photos/270348/pexels-photo-270348.jpeg"
         }
       });
     }, 1000);
   }
 };
 </script>
+
+
 <style scoped>
-posts-page {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 .single-post-page {
   padding: 30px;
   text-align: center;
